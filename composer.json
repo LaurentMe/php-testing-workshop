@@ -1,0 +1,21 @@
+{
+    "name": "brammm/testing-workshop",
+    "description": "A workshop built around PHPUnit",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Brammm\\TestingWorkshop\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bram Van der Sype",
+            "email": "bram.vandersype@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "ramsey/uuid": "^4.3",
+        "moneyphp/money": "^4.0"
+    }
+}
