@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+    php-testing-workshop-mysql:
+        image: mysql:8
+        platform: linux/x86_64
+        ports:
+            - 3360:3306
+        volumes:
+            - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=testing-workshop
