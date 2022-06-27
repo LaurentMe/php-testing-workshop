@@ -9,7 +9,10 @@ use Ramsey\Uuid\UuidInterface;
 
 class OrderLine
 {
-    public UuidInterface $productId;
-    public int $amount;
-    public Money $price;
+    public function __construct(
+        public UuidInterface $productId,
+        public int $amount,
+        public Money $price,
+    ) {
+    }
 }

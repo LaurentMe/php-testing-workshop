@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Brammm\TestingWorkshop;
 
 use Brammm\TestingWorkshop\Http\GetCustomers;
+use Brammm\TestingWorkshop\Http\GetOrders;
 use Brammm\TestingWorkshop\Http\GetProducts;
 use Brammm\TestingWorkshop\Provider\CustomerProvider;
+use Brammm\TestingWorkshop\Provider\OrderProvider;
 use Brammm\TestingWorkshop\Provider\ProductProvider;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
@@ -37,10 +39,15 @@ final class Container implements ContainerInterface
 
         self::$services[CustomerProvider::class] = new CustomerProvider(self::connection());
         self::$services[ProductProvider::class] = new ProductProvider(self::connection());
+        self::$services[OrderProvider::class] = new OrderProvider(self::connection());
 
         self::$services[GetCustomers::class] = new GetCustomers($this->get(CustomerProvider::class));
         self::$services[GetProducts::class] = new GetProducts(
             $this->get(ProductProvider::class),
+            $this->get(MoneyFormatter::class),
+        );
+        self::$services[GetOrders::class] = new GetOrders(
+            $this->get(OrderProvider::class),
             $this->get(MoneyFormatter::class),
         );
     }

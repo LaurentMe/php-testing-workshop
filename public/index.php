@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Brammm\TestingWorkshop\Container;
 use Brammm\TestingWorkshop\Http\GetCustomers;
+use Brammm\TestingWorkshop\Http\GetOrders;
 use Brammm\TestingWorkshop\Http\GetProducts;
 use Slim\Factory\AppFactory;
 use Slim\Psr7\Factory\ResponseFactory;
@@ -17,5 +18,6 @@ $app = AppFactory::create(
 
 $app->get('/customers', GetCustomers::class);
 $app->get('/products', GetProducts::class);
+$app->get('/orders', GetOrders::class);
 
 $app->run();
