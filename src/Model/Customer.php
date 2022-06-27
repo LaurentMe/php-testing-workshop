@@ -8,6 +8,9 @@ use Ramsey\Uuid\UuidInterface;
 
 class Customer
 {
-    public UuidInterface $id;
-    public string $name;
+    public function __construct(
+        public UuidInterface $id,
+        public string $name,
+    ) {
+    }
 }
