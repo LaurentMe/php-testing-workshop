@@ -17,7 +17,6 @@ DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
   `id` char(36) NOT NULL,
   `customer_id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `discount` int NOT NULL,
   `refunded_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `customer_id` (`customer_id`),
@@ -49,9 +48,9 @@ INSERT INTO `product` (`id`, `name`, `price`) VALUES
 ('b6ab6c71-654a-4726-a3e0-c1915fb413ea', 'Screw Driver', 1500),
 ('ccfc79f3-2be1-47cf-95b7-513a6eed9de0', 'M4 Bolt', 50);
 
-INSERT INTO `order` (`id`, `customer_id`, `discount`, `refunded_at`) VALUES
-    ('4c8e1ab4-bd81-43b1-aea8-0e0fb797b926', '55943c45-a597-4c34-9a26-83f48fa659c6', 0, NULL),
-    ('fd707e52-1ae3-4deb-9fdc-f81360e48d9e', 'b874a8fe-2f00-40e7-b68a-ed368c3ef12b', 0, NULL);
+INSERT INTO `order` (`id`, `customer_id`) VALUES
+    ('4c8e1ab4-bd81-43b1-aea8-0e0fb797b926', '55943c45-a597-4c34-9a26-83f48fa659c6'),
+    ('fd707e52-1ae3-4deb-9fdc-f81360e48d9e', 'b874a8fe-2f00-40e7-b68a-ed368c3ef12b');
 
 INSERT INTO `order_line` (`order_id`, `product_id`, `amount`, `price`) VALUES
     ('4c8e1ab4-bd81-43b1-aea8-0e0fb797b926', '626ff8c7-f332-4a18-8de3-905daf32be0d', 20, 100),
