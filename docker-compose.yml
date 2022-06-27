@@ -1,6 +1,14 @@
 version: "3.8"
 
 services:
+    php-testing-workshop-php:
+        build:
+           context: ./
+           dockerfile: docker/php/Dockerfile
+        ports:
+            - 8080:8080
+        volumes:
+            -   ./:/var/www/app
     php-testing-workshop-mysql:
         image: mysql:8
         platform: linux/x86_64
