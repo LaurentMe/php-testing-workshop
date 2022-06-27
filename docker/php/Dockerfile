@@ -1,6 +1,7 @@
 FROM php:8.1-alpine3.16
 
-RUN docker-php-ext-install -j$(nproc) pdo_mysql
+RUN apk add icu-dev && \
+  docker-php-ext-install -j$(nproc) pdo_mysql intl
 
 WORKDIR /var/www/app
 

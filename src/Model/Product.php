@@ -9,7 +9,10 @@ use Ramsey\Uuid\UuidInterface;
 
 class Product
 {
-    public UuidInterface $id;
-    public string $name;
-    public Money $price;
+    public function __construct (
+        public UuidInterface $id,
+        public string $name,
+        public Money $price,
+    ) {
+    }
 }

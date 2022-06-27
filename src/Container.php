@@ -5,10 +5,16 @@ declare(strict_types=1);
 namespace Brammm\TestingWorkshop;
 
 use Brammm\TestingWorkshop\Http\GetCustomers;
+use Brammm\TestingWorkshop\Http\GetProducts;
 use Brammm\TestingWorkshop\Provider\CustomerProvider;
+use Brammm\TestingWorkshop\Provider\ProductProvider;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use Exception;
+use Money\Currencies\ISOCurrencies;
+use Money\Formatter\IntlMoneyFormatter;
+use Money\MoneyFormatter;
+use NumberFormatter;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
@@ -24,9 +30,19 @@ final class Container implements ContainerInterface
 
     public function __construct()
     {
+        self::$services[MoneyFormatter::class] = new IntlMoneyFormatter(
+            new NumberFormatter('nl_BE', NumberFormatter::CURRENCY),
+            new ISOCurrencies()
+        );
+
         self::$services[CustomerProvider::class] = new CustomerProvider(self::connection());
+        self::$services[ProductProvider::class] = new ProductProvider(self::connection());
 
         self::$services[GetCustomers::class] = new GetCustomers($this->get(CustomerProvider::class));
+        self::$services[GetProducts::class] = new GetProducts(
+            $this->get(ProductProvider::class),
+            $this->get(MoneyFormatter::class),
+        );
     }
 
     /**

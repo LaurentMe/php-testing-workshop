@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Brammm\TestingWorkshop\Provider;
 
-use Brammm\TestingWorkshop\Model\Customer;
+use Brammm\TestingWorkshop\Model\Product;
 use Doctrine\DBAL\Connection;
+use Money\Money;
 use Ramsey\Uuid\Uuid;
 
-class CustomerProvider
+class ProductProvider
 {
     public function __construct(
         private readonly Connection $connection
@@ -16,24 +17,25 @@ class CustomerProvider
     }
 
     /**
-     * @return Customer[]
+     * @return Product[]
      */
     public function findAll(): array
     {
         return array_map(
             [$this, 'hydrate'],
-            $this->connection->fetchAllAssociative('SELECT * FROM customer ORDER BY name')
+            $this->connection->fetchAllAssociative('SELECT * FROM product ORDER BY name')
         );
     }
 
     /**
-     * @param array{id: string, name: string} $row
+     * @param array{id: string, name: string, price: int} $row
      */
-    private function hydrate(array $row): Customer
+    private function hydrate(array $row): Product
     {
-        return new Customer(
+        return new Product(
             Uuid::fromString($row['id']),
-            $row['name']
+            $row['name'],
+            Money::EUR($row['price'])
         );
     }
 }

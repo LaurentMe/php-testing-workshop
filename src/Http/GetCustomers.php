@@ -19,7 +19,7 @@ class GetCustomers
     {
         $customers = $this->customerProvider->findAll();
 
-        $data = array_map(static fn ($customer) => [
+        $data = array_map(fn ($customer) => [
             'id' => $customer->id->toString(),
             'name' => $customer->name,
         ], $customers);
