@@ -12,7 +12,7 @@ use Money\Money;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
-class OrderProvider
+final class OrderProvider
 {
     public function __construct(
         private readonly Connection $connection
