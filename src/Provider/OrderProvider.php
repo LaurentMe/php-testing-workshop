@@ -39,7 +39,7 @@ class OrderProvider
         $order['lines'] = $this->collectLines($order['id'], $data);
 
         $lines = array_map(static fn (array $row) => new OrderLine(
-            Uuid::fromString($row['product_id']),
+            $row['description'],
             $row['amount'],
             Money::EUR($row['price'])
         ), $order['lines']);
@@ -82,7 +82,7 @@ class OrderProvider
         $objects = [];
         foreach ($orders as $order) {
             $lines = array_map(static fn (array $row) => new OrderLine(
-                Uuid::fromString($row['product_id']),
+                $row['description'],
                 $row['amount'],
                 Money::EUR($row['price'])
             ), $order['lines']);
@@ -101,7 +101,7 @@ class OrderProvider
     private function collectLines(string $orderId, array $data)
     {
         return array_map(static fn (array $row) => [
-            'product_id' => $row['product_id'],
+            'description' => $row['description'],
             'amount' => $row['amount'],
             'price' => $row['price'],
         ], array_filter($data, static fn (array $row) => $row['id'] === $orderId));

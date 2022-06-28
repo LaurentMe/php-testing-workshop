@@ -53,53 +53,6 @@
 			"response": []
 		},
 		{
-			"name": "Products",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "Accept-Language",
-						"value": "nl-NL,nl;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJlY3JlbnQiLCJqdGkiOiIyNzY5NGViY2I1NDY2MjZlMTgyN2UxMTZiNmExN2RmNzcxZWJmODU0OWM1Y2Q1ODhkYzUwYTYxMTljZjhjM2I0NTkyNDI2ZjgxMGMzYzI2OCIsImlhdCI6MTY1NTQ2MzkwOC44Njc1NDUsIm5iZiI6MTY1NTQ2MzkwOC44Njc1NDgsImV4cCI6MTY1NTUwNzEwOC44MTM3NzMsInN1YiI6IjE1MSIsInNjb3BlcyI6W119.KECz9XAW03qa_1dvAslC9acEuyADcdOToj3sMVDvYwrxX5zrkmKKEuxpOar8Z3MBogTE-CiLPk_XT1c1PisyV4TIFACWFgkw8EwkFQmA6pmwX9lvqaTouhmupMCq4mSgeZEFbE1olOl-P40RflTAv5E5Qw3-dBpYTIkmaAyITME"
-					},
-					{
-						"key": "Connection",
-						"value": "keep-alive"
-					},
-					{
-						"key": "Origin",
-						"value": "http://0.0.0.0:3000"
-					},
-					{
-						"key": "Referer",
-						"value": "http://0.0.0.0:3000/"
-					},
-					{
-						"key": "User-Agent",
-						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36"
-					}
-				],
-				"url": {
-					"raw": "localhost:8800/products",
-					"host": [
-						"localhost"
-					],
-					"port": "8800",
-					"path": [
-						"products"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Orders",
 			"request": {
 				"method": "GET",

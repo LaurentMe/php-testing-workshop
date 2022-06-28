@@ -26,7 +26,7 @@ class GetOrders
             'customer_id' => $order->customerId->toString(),
             'refunded_at' => $order->refundedAt?->format('Y-m-d H:i:s'),
             'lines' => array_map(fn ($line) => [
-                'product_id' => $line->productId->toString(),
+                'description' => $line->description,
                 'amount' => $line->amount,
                 'price' => $this->formatter->format($line->price),
             ], $order->lines)
