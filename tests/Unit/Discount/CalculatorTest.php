@@ -36,7 +36,7 @@ final class CalculatorTest extends TestCase
                     Uuid::uuid4(),
                     Uuid::uuid4(),
                     [
-                        new OrderLine(Uuid::uuid4(), 100, Money::EUR(1000)),
+                        new OrderLine('Some product', 100, Money::EUR(1000)),
                     ]
                 ),
                 Money::EUR(10000),
@@ -46,7 +46,7 @@ final class CalculatorTest extends TestCase
                     Uuid::uuid4(),
                     Uuid::uuid4(),
                     [
-                        new OrderLine(Uuid::uuid4(), 50, Money::EUR(1000)),
+                        new OrderLine('Some product', 50, Money::EUR(1000)),
                     ]
                 ),
                 Money::EUR(0),
@@ -56,8 +56,8 @@ final class CalculatorTest extends TestCase
                     Uuid::uuid4(),
                     Uuid::uuid4(),
                     [
-                        new OrderLine(Uuid::uuid4(), 50, Money::EUR(1000)),
-                        new OrderLine(Uuid::uuid4(), 51, Money::EUR(500)),
+                        new OrderLine('Some product', 50, Money::EUR(1000)),
+                        new OrderLine('Some other product', 51, Money::EUR(500)),
                     ]
                 ),
                 Money::EUR(2550),
@@ -67,8 +67,8 @@ final class CalculatorTest extends TestCase
                     Uuid::uuid4(),
                     Uuid::uuid4(),
                     [
-                        new OrderLine(Uuid::uuid4(), 51, Money::EUR(500)),
-                        new OrderLine(Uuid::uuid4(), 100, Money::EUR(1000)),
+                        new OrderLine('Some product', 51, Money::EUR(500)),
+                        new OrderLine('Some other product', 100, Money::EUR(1000)),
                     ]
                 ),
                 Money::EUR(2550),
