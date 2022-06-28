@@ -2,8 +2,12 @@
 
 declare(strict_types=1);
 
+use Brammm\TestingWorkshop\Clock\ActualClock;
+use Brammm\TestingWorkshop\Clock\Clock;
 use Brammm\TestingWorkshop\Discount\Calculator;
 use Brammm\TestingWorkshop\Discount\MoreThanFiftyDiscount;
+use Brammm\TestingWorkshop\Discount\TrustedCustomerDiscount;
+use Brammm\TestingWorkshop\Provider\CustomerProvider;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use Money\Currencies\ISOCurrencies;
@@ -24,7 +28,13 @@ return [
         new ISOCurrencies()
     ),
 
-    Calculator::class => fn () => new Calculator(
+    Clock::class => fn () => new ActualClock(),
+
+    Calculator::class => fn (CustomerProvider $customerProvider, Clock $clock) => new Calculator(
         new MoreThanFiftyDiscount(),
+        new TrustedCustomerDiscount(
+            $customerProvider,
+            $clock
+        ),
     ),
 ];
