@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -eux
+
+exec docker-compose exec php-testing-workshop-php vendor/bin/phpunit "$@"
