@@ -16,11 +16,14 @@
     "require": {
         "php": "^8.1",
         "ext-intl": "*",
-        "ramsey/uuid": "^4.3",
-        "moneyphp/money": "^4.0",
         "doctrine/dbal": "^3.3",
-        "slim/slim": "^4.10",
+        "moneyphp/money": "^4.0",
+        "php-di/php-di": "^6.4",
+        "ramsey/uuid": "^4.3",
         "slim/psr7": "^1.5",
-        "psr/container": "^2.0"
+        "slim/slim": "^4.10"
+    },
+    "config": {
+        "sort-packages": true
     }
 }
