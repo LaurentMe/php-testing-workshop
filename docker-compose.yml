@@ -6,7 +6,7 @@ services:
            context: ./
            dockerfile: docker/php/Dockerfile
         ports:
-            - 8080:8080
+            - 8800:80
         volumes:
             -   ./:/var/www/app
     php-testing-workshop-mysql:
