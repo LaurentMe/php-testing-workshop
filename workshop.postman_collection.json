@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "cc10af8b-534d-48b0-8bdc-609d149fcfe4",
+		"name": "PHP Testing Workshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "nl-NL,nl;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJlY3JlbnQiLCJqdGkiOiIyNzY5NGViY2I1NDY2MjZlMTgyN2UxMTZiNmExN2RmNzcxZWJmODU0OWM1Y2Q1ODhkYzUwYTYxMTljZjhjM2I0NTkyNDI2ZjgxMGMzYzI2OCIsImlhdCI6MTY1NTQ2MzkwOC44Njc1NDUsIm5iZiI6MTY1NTQ2MzkwOC44Njc1NDgsImV4cCI6MTY1NTUwNzEwOC44MTM3NzMsInN1YiI6IjE1MSIsInNjb3BlcyI6W119.KECz9XAW03qa_1dvAslC9acEuyADcdOToj3sMVDvYwrxX5zrkmKKEuxpOar8Z3MBogTE-CiLPk_XT1c1PisyV4TIFACWFgkw8EwkFQmA6pmwX9lvqaTouhmupMCq4mSgeZEFbE1olOl-P40RflTAv5E5Qw3-dBpYTIkmaAyITME"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "http://0.0.0.0:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://0.0.0.0:3000/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "nl-NL,nl;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJlY3JlbnQiLCJqdGkiOiIyNzY5NGViY2I1NDY2MjZlMTgyN2UxMTZiNmExN2RmNzcxZWJmODU0OWM1Y2Q1ODhkYzUwYTYxMTljZjhjM2I0NTkyNDI2ZjgxMGMzYzI2OCIsImlhdCI6MTY1NTQ2MzkwOC44Njc1NDUsIm5iZiI6MTY1NTQ2MzkwOC44Njc1NDgsImV4cCI6MTY1NTUwNzEwOC44MTM3NzMsInN1YiI6IjE1MSIsInNjb3BlcyI6W119.KECz9XAW03qa_1dvAslC9acEuyADcdOToj3sMVDvYwrxX5zrkmKKEuxpOar8Z3MBogTE-CiLPk_XT1c1PisyV4TIFACWFgkw8EwkFQmA6pmwX9lvqaTouhmupMCq4mSgeZEFbE1olOl-P40RflTAv5E5Qw3-dBpYTIkmaAyITME"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "http://0.0.0.0:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://0.0.0.0:3000/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "nl-NL,nl;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJlY3JlbnQiLCJqdGkiOiIyNzY5NGViY2I1NDY2MjZlMTgyN2UxMTZiNmExN2RmNzcxZWJmODU0OWM1Y2Q1ODhkYzUwYTYxMTljZjhjM2I0NTkyNDI2ZjgxMGMzYzI2OCIsImlhdCI6MTY1NTQ2MzkwOC44Njc1NDUsIm5iZiI6MTY1NTQ2MzkwOC44Njc1NDgsImV4cCI6MTY1NTUwNzEwOC44MTM3NzMsInN1YiI6IjE1MSIsInNjb3BlcyI6W119.KECz9XAW03qa_1dvAslC9acEuyADcdOToj3sMVDvYwrxX5zrkmKKEuxpOar8Z3MBogTE-CiLPk_XT1c1PisyV4TIFACWFgkw8EwkFQmA6pmwX9lvqaTouhmupMCq4mSgeZEFbE1olOl-P40RflTAv5E5Qw3-dBpYTIkmaAyITME"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "http://0.0.0.0:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://0.0.0.0:3000/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order detail (4c8e1ab4-bd81-43b1-aea8-0e0fb797b926)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "nl-NL,nl;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJlY3JlbnQiLCJqdGkiOiIyNzY5NGViY2I1NDY2MjZlMTgyN2UxMTZiNmExN2RmNzcxZWJmODU0OWM1Y2Q1ODhkYzUwYTYxMTljZjhjM2I0NTkyNDI2ZjgxMGMzYzI2OCIsImlhdCI6MTY1NTQ2MzkwOC44Njc1NDUsIm5iZiI6MTY1NTQ2MzkwOC44Njc1NDgsImV4cCI6MTY1NTUwNzEwOC44MTM3NzMsInN1YiI6IjE1MSIsInNjb3BlcyI6W119.KECz9XAW03qa_1dvAslC9acEuyADcdOToj3sMVDvYwrxX5zrkmKKEuxpOar8Z3MBogTE-CiLPk_XT1c1PisyV4TIFACWFgkw8EwkFQmA6pmwX9lvqaTouhmupMCq4mSgeZEFbE1olOl-P40RflTAv5E5Qw3-dBpYTIkmaAyITME"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "http://0.0.0.0:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://0.0.0.0:3000/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/orders/4c8e1ab4-bd81-43b1-aea8-0e0fb797b926",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"4c8e1ab4-bd81-43b1-aea8-0e0fb797b926"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order detail (fd707e52-1ae3-4deb-9fdc-f81360e48d9e)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "nl-NL,nl;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJlY3JlbnQiLCJqdGkiOiIyNzY5NGViY2I1NDY2MjZlMTgyN2UxMTZiNmExN2RmNzcxZWJmODU0OWM1Y2Q1ODhkYzUwYTYxMTljZjhjM2I0NTkyNDI2ZjgxMGMzYzI2OCIsImlhdCI6MTY1NTQ2MzkwOC44Njc1NDUsIm5iZiI6MTY1NTQ2MzkwOC44Njc1NDgsImV4cCI6MTY1NTUwNzEwOC44MTM3NzMsInN1YiI6IjE1MSIsInNjb3BlcyI6W119.KECz9XAW03qa_1dvAslC9acEuyADcdOToj3sMVDvYwrxX5zrkmKKEuxpOar8Z3MBogTE-CiLPk_XT1c1PisyV4TIFACWFgkw8EwkFQmA6pmwX9lvqaTouhmupMCq4mSgeZEFbE1olOl-P40RflTAv5E5Qw3-dBpYTIkmaAyITME"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Origin",
+						"value": "http://0.0.0.0:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://0.0.0.0:3000/"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/orders/fd707e52-1ae3-4deb-9fdc-f81360e48d9e",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"fd707e52-1ae3-4deb-9fdc-f81360e48d9e"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
