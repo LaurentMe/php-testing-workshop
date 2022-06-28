@@ -8,6 +8,9 @@ use Brammm\TestingWorkshop\Discount\Calculator;
 use Brammm\TestingWorkshop\Discount\MoreThanFiftyDiscount;
 use Brammm\TestingWorkshop\Discount\TrustedCustomerDiscount;
 use Brammm\TestingWorkshop\Provider\CustomerProvider;
+use Brammm\TestingWorkshop\Provider\DbalCustomerProvider;
+use Brammm\TestingWorkshop\Provider\DbalOrderProvider;
+use Brammm\TestingWorkshop\Provider\OrderProvider;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use Money\Currencies\ISOCurrencies;
@@ -29,6 +32,10 @@ return [
     ),
 
     Clock::class => fn () => new ActualClock(),
+
+    CustomerProvider::class => fn (Connection $connection) => new DbalCustomerProvider($connection),
+
+    OrderProvider::class => fn (Connection $connection) => new DbalOrderProvider($connection),
 
     Calculator::class => fn (CustomerProvider $customerProvider, Clock $clock) => new Calculator(
         new MoreThanFiftyDiscount(),
