@@ -10,7 +10,7 @@ use Doctrine\DBAL\Connection;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
-class CustomerProvider
+final class CustomerProvider
 {
     public function __construct(
         private readonly Connection $connection

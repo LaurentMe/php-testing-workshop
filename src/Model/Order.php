@@ -7,7 +7,7 @@ namespace Brammm\TestingWorkshop\Model;
 use DateTimeImmutable;
 use Ramsey\Uuid\UuidInterface;
 
-class Order
+final class Order
 {
     /**
      * @param OrderLine[] $lines
