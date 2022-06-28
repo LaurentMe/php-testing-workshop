@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS `customer`;
 CREATE TABLE `customer` (
   `id` char(36) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `customer_since` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -35,11 +36,11 @@ CREATE TABLE `order_line` (
   CONSTRAINT `order_line_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `customer` (`id`, `name`) VALUES
-('55943c45-a597-4c34-9a26-83f48fa659c6', 'Bruce'),
-('7fe8d7bb-5935-4e12-a5cf-45c281f7af00', 'Tina'),
-('a231f5fa-b781-4b79-9aea-85840ce71911', 'John'),
-('b874a8fe-2f00-40e7-b68a-ed368c3ef12b', 'Jane');
+INSERT INTO `customer` (`id`, `name`, `customer_since`) VALUES
+('55943c45-a597-4c34-9a26-83f48fa659c6', 'Bruce', '2022-05-01 12:00:00'),
+('7fe8d7bb-5935-4e12-a5cf-45c281f7af00', 'Tina', '2022-06-01 12:00:00'),
+('a231f5fa-b781-4b79-9aea-85840ce71911', 'John', '2021-04-25 12:00:00'),
+('b874a8fe-2f00-40e7-b68a-ed368c3ef12b', 'Jane', '2020-02-03 12:00:00');
 
 INSERT INTO `product` (`id`, `name`, `price`) VALUES
 ('626ff8c7-f332-4a18-8de3-905daf32be0d', 'Angle Connector', 100),

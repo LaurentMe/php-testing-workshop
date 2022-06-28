@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Brammm\TestingWorkshop\Provider;
 
 use Brammm\TestingWorkshop\Model\Customer;
+use DateTimeImmutable;
 use Doctrine\DBAL\Connection;
 use Ramsey\Uuid\Uuid;
 
@@ -27,13 +28,14 @@ class CustomerProvider
     }
 
     /**
-     * @param array{id: string, name: string} $row
+     * @param array{id: string, name: string, customer_since: string} $row
      */
     private function hydrate(array $row): Customer
     {
         return new Customer(
             Uuid::fromString($row['id']),
-            $row['name']
+            $row['name'],
+            new DateTimeImmutable($row['customer_since'])
         );
     }
 }
