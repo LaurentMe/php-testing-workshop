@@ -13,37 +13,66 @@ use Ramsey\Uuid\Uuid;
 
 final class CalculatorTest extends TestCase
 {
-    public function testItReturnsTheCorrectDiscountIfMoreThanFifty(): void
+    /**
+     * @dataProvider providesOrders
+     */
+    public function testItReturnsTheCorrectDiscount(Order $order, Money $expectedDiscount): void
     {
-        $order = new Order(
-            Uuid::uuid4(),
-            Uuid::uuid4(),
-            [
-                new OrderLine(Uuid::uuid4(), 100, Money::EUR(1000)),
-            ]
-        );
-
         $calculator = new Calculator();
 
-        $discount = $calculator->calculateDiscount($order);
+        $actualDiscount = $calculator->calculateDiscount($order);
 
-        self::assertEquals(Money::EUR(10000), $discount);
+        self::assertEquals($expectedDiscount, $actualDiscount);
     }
 
-    public function testItReturnsNoDiscountOnFifty(): void
+    /**
+     * @return array<array{Order, Money}>
+     */
+    public function providesOrders(): array
     {
-        $order = new Order(
-            Uuid::uuid4(),
-            Uuid::uuid4(),
+        return [
             [
-                new OrderLine(Uuid::uuid4(), 50, Money::EUR(1000)),
-            ]
-        );
-
-        $calculator = new Calculator();
-
-        $discount = $calculator->calculateDiscount($order);
-
-        self::assertEquals(Money::EUR(0), $discount);
+                new Order(
+                    Uuid::uuid4(),
+                    Uuid::uuid4(),
+                    [
+                        new OrderLine(Uuid::uuid4(), 100, Money::EUR(1000)),
+                    ]
+                ),
+                Money::EUR(10000),
+            ],
+            [
+                new Order(
+                    Uuid::uuid4(),
+                    Uuid::uuid4(),
+                    [
+                        new OrderLine(Uuid::uuid4(), 50, Money::EUR(1000)),
+                    ]
+                ),
+                Money::EUR(0),
+            ],
+            [
+                new Order(
+                    Uuid::uuid4(),
+                    Uuid::uuid4(),
+                    [
+                        new OrderLine(Uuid::uuid4(), 50, Money::EUR(1000)),
+                        new OrderLine(Uuid::uuid4(), 51, Money::EUR(500)),
+                    ]
+                ),
+                Money::EUR(2550),
+            ],
+            [
+                new Order(
+                    Uuid::uuid4(),
+                    Uuid::uuid4(),
+                    [
+                        new OrderLine(Uuid::uuid4(), 51, Money::EUR(500)),
+                        new OrderLine(Uuid::uuid4(), 100, Money::EUR(1000)),
+                    ]
+                ),
+                Money::EUR(2550),
+            ],
+        ];
     }
 }
