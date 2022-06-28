@@ -7,6 +7,11 @@
             "Brammm\\TestingWorkshop\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Brammm\\TestingWorkshop\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Bram Van der Sype",
@@ -23,6 +28,9 @@
         "ramsey/uuid": "^4.3",
         "slim/psr7": "^1.5",
         "slim/slim": "^4.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     },
     "config": {
         "sort-packages": true
