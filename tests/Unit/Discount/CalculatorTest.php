@@ -11,33 +11,38 @@ use Ramsey\Uuid\Uuid;
 
 class CalculatorTest extends TestCase
 {
-    public function testItReturnsNoDiscount(): void
+    /**
+     * @dataProvider providesTestData
+     */
+    public function testItReturnsNoDiscount(array $orderLines, Money $expectedDiscount): void
     {
         $calculator = new Calculator();
 
-        $discount = $calculator->calculateDiscount(new Order(
+        $actualDiscount = $calculator->calculateDiscount(new Order(
             Uuid::uuid4(),
             Uuid::uuid4(),
-            [
-                new OrderLine('Some product', 1, Money::EUR(5000))
-            ]
+            $orderLines
         ));
 
-        self::assertEquals(Money::EUR(0), $discount);
+        self::assertEquals($expectedDiscount, $actualDiscount);
     }
 
-    public function testItReturnsForMoreThenFiftyItems(): void
+    /**
+     * @return array<array{Orderline[], Money}>
+     */
+    public function providesTestData(): array
     {
-        $calculator = new Calculator();
-
-        $discount = $calculator->calculateDiscount(new Order(
-            Uuid::uuid4(),
-            Uuid::uuid4(),
+        return [
             [
-                new OrderLine('Some product', 51, Money::EUR(50))
+                [new OrderLine('Some product', 50, Money::EUR(5000))],
+                Money::EUR(0)
+            ],
+            [
+                [
+                    new OrderLine('Some product', 51, Money::EUR(50))
+                ],
+                Money::EUR(255)
             ]
-        ));
-
-        self::assertEquals(Money::EUR(255), $discount);
+        ];
     }
 }
