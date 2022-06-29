@@ -13,5 +13,7 @@ Requirement: You need Docker installed on your machine and composer
 1. Introduction: Why should we test?
 2. How to install and run PHPUnit
 3. Writing your first unit test
-4. Side note: object design, two types of objects
+4. Sidetrack: object design, two types of objects
 5. Integration tests
+6. Contract testing
+7. Acceptance tests
