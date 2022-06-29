@@ -18,9 +18,9 @@ final class DbalCustomerProvider implements CustomerProvider
     ) {
     }
 
-    public function findById(UuidInterface $uuid): Customer
+    public function findById(UuidInterface $id): Customer
     {
-        $data = $this->connection->fetchAssociative('SELECT * FROM customer WHERE id = ?', [$uuid->toString()]);
+        $data = $this->connection->fetchAssociative('SELECT * FROM customer WHERE id = ?', [$id->toString()]);
 
         if (! $data) {
             throw new Exception('Not found');

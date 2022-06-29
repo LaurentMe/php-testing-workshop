@@ -19,11 +19,11 @@ final class DbalOrderProvider implements OrderProvider
     ) {
     }
 
-    public function findById(UuidInterface $uuid): Order
+    public function findById(UuidInterface $id): Order
     {
         $data = $this->connection->fetchAllAssociative(
             'SELECT * FROM `order` o INNER JOIN order_line ol ON ol.order_id = o.id WHERE o.id = ?',
-            [$uuid->toString()]
+            [$id->toString()]
         );
 
         if (!$data) {
