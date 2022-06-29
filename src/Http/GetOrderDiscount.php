@@ -26,11 +26,7 @@ final class GetOrderDiscount
     {
         $order = $this->orderProvider->findById(Uuid::fromString($args['id']));
 
-        $total = array_reduce(
-            $order->lines,
-            fn (Money $total, OrderLine $line) => $total->add($line->price->multiply($line->amount)),
-            Money::EUR(0)
-        );
+        $total = $order->total();
 
         $data = [
             'total' => $this->formatter->format($total),
