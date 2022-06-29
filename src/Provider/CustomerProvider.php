@@ -9,7 +9,7 @@ use Ramsey\Uuid\UuidInterface;
 
 interface CustomerProvider
 {
-    public function findById(UuidInterface $uuid): Customer;
+    public function findById(UuidInterface $id): Customer;
 
     /**
      * @return Customer[]

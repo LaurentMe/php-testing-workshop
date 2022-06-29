@@ -6,13 +6,12 @@ namespace Brammm\TestingWorkshop\Integration;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
-use PHPUnit\Framework\TestCase;
 
-abstract class IntegrationTestCase extends TestCase
+trait ProvidesIntegrationTestConnection
 {
-    protected static ?Connection $connection = null;
+    private static ?Connection $connection = null;
 
-    protected function setUp(): void
+    public function getConnection(): Connection
     {
         if (! self::$connection) {
             self::$connection = DriverManager::getConnection([
@@ -28,11 +27,16 @@ abstract class IntegrationTestCase extends TestCase
             self::$connection->executeStatement(file_get_contents(__DIR__ . '/../../setup.sql'));
         }
 
-        self::$connection->beginTransaction();
+        return self::$connection;
+    }
+
+    protected function setUp(): void
+    {
+        $this->getConnection()->beginTransaction();
     }
 
     protected function tearDown(): void
     {
-        self::$connection->rollBack();
+        $this->getConnection()->rollBack();
     }
 }

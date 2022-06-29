@@ -2,26 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Brammm\TestingWorkshop\Integration;
+namespace Brammm\TestingWorkshop\Integration\Customer;
 
-use Brammm\TestingWorkshop\Provider\DbalCustomerProvider;
+use Brammm\TestingWorkshop\Provider\CustomerProvider;
 use Exception;
+use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
 
-final class DbalCustomerProviderTest extends IntegrationTestCase
+abstract class CustomerProviderTest extends TestCase
 {
-    private DbalCustomerProvider $provider;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->provider = new DbalCustomerProvider(self::$connection);
-    }
+    abstract protected function getProvider(): CustomerProvider;
 
     public function testItFindsAllCustomers(): void
     {
-        $customers = $this->provider->findAll();
+        $customers = $this->getProvider()->findAll();
 
         self::assertCount(4, $customers);
         self::assertEquals('Bruce', $customers[0]->name);
@@ -32,7 +26,7 @@ final class DbalCustomerProviderTest extends IntegrationTestCase
 
     public function testItFindsCustomerById(): void
     {
-        $customer = $this->provider->findById(Uuid::fromString('55943c45-a597-4c34-9a26-83f48fa659c6'));
+        $customer = $this->getProvider()->findById(Uuid::fromString('55943c45-a597-4c34-9a26-83f48fa659c6'));
 
         self::assertEquals('Bruce', $customer->name);
     }
@@ -40,6 +34,6 @@ final class DbalCustomerProviderTest extends IntegrationTestCase
     public function testItThrowsExceptionIfNotFound(): void
     {
         $this->expectException(Exception::class);
-        $this->provider->findById(Uuid::uuid4());
+        $this->getProvider()->findById(Uuid::uuid4());
     }
 }
